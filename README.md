@@ -1,2 +1,2 @@
-# Djangp-project
+# Django-project
 dynamic website
