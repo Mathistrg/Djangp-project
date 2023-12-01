@@ -1,17 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vote</title>
+    <title>Questions</title>
 </head>
 <body>
-    {% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
+
+<header>
+    <h1 class="search">Search bar</h1>
+    <form action="{% url 'polls:index'%}" method="GET">
+        <input type="text" placeholder="Search..." name="q">
+        <input type="submit" value="Rechercher">
+    </form>
+</header>
+    <H1 class="polls">POLLS</H1>
+    <div class="caca">
+        {% if latest_question_list %}
+        <ul> 
+        {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
