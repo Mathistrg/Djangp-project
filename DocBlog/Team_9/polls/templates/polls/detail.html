@@ -8,7 +8,9 @@
     <title>Choose your side</title>
 </head>
 <body>
-
+<button class="custom-btn btn-4">
+    <a href="{% url 'polls:index'%}">Go home</a>
+</button>
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     <fieldset>
